@@ -65,7 +65,8 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
+  -- markdown preview
+  'iamcco/markdown-preview.nvim',
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -147,7 +148,9 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      -- vim.cmd.colorscheme 'onedark'
+      -- vim.api.nvim_set_hl(0, "Comment", { ctermfg=116,  fg='#87d7d7' })
+      -- vim.cmd([[hi Comment ctermfg=116  guifg=#87d7d7]])  --rgb=135,215,215  
     end,
   },
 
@@ -228,6 +231,8 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Setting Theme
+vim.cmd.colorscheme 'industry'
 -- Set highlight on search
 vim.o.hlsearch = false
 
